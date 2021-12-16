@@ -117,5 +117,18 @@ int main(int argc, char *argv[]) {
   printf("*** 第１主成分 : ");
   print_vec(x);
 
+  for (int i = 0; i < P; i++) {
+    for (int j = 0; j < P; j++) {
+      A[i][j] -= lambda * x[i] * x[j];
+    }
+  }
+
+  for (int i = 0; i < P; i++)
+    x[i] = 0;
+  x[0] = 1;
+  poweigen(A, x, &lambda);
+  printf("*** 第２主成分 : ");
+  print_vec(x);
+
   return 0;
 }
