@@ -1,16 +1,7 @@
-/*
-enshu 11
-67170575
-Akira Itai
- 
-gcc sol.c -lm -o a
-*/
+#include <bits/stdc++.h>
+using namespace std;
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-
-#define P 5
+#define P 2
 #define N 23
 #define EPS 1e-5
 
@@ -82,36 +73,22 @@ void poweigen(double A[][P], double *x, double *eigen_value) {
 
 int main(int argc, char *argv[]) {
   double lambda;
-  double data[][P] = {
-    {55, 84, 29, 33, 79},
-    {72, 97, 71, 68, 64},
-    {79, 100, 74, 91, 76},
-    {58, 85, 52, 56, 60},
-    {96, 98, 77, 92, 88},
-    {66, 88, 60, 85, 66},
-    {73, 95, 81, 91, 63},
-    {72, 92, 61, 84, 78},
-    {81, 96, 70, 75, 67},
-    {73, 92, 53, 70, 51},
-    {96, 97, 69, 64, 57},
-    {90, 100, 87, 89, 85},
-    {96, 98, 83, 75, 81},
-    {67, 86, 76, 61, 57},
-    {78, 97, 87, 82, 82},
-    {78, 94, 77, 80, 70},
-    {45, 96, 38, 43, 12},
-    {78, 95, 67, 73, 67},
-    {80, 100, 83, 77, 67},
-    {56, 95, 47, 61, 21},
-    {88, 96, 70, 62, 51},
-    {63, 92, 81, 51, 66},
-    {36, 84, 51, 16, 48}
-  };
+  double data[N][P] = {0};
   double A[P][P];
-  double x[P] = {};
+  double x[P] = {0};
   x[0] = 1;
 
+  for (int i = 0; i < N; i++) {
+    for (int j = 0; j < P; j++)
+      cin >> data[i][j];
+  }
+
   calc_cov(data, A);
+  for (int i = 0; i < P; i++) {
+    for (int j = 0; j < P; j++)
+      cout << A[i][j] << ' ';
+    cout << '\n';
+  }
 
   poweigen(A, x, &lambda);
   printf("*** 第１主成分 : ");
