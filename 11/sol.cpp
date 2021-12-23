@@ -2,7 +2,7 @@
 using namespace std;
 
 #define P 2
-#define N 23
+#define N 10
 #define EPS 1e-5
 
 void calc_cov(double data[N][P], double A[P][P]) {
@@ -12,6 +12,7 @@ void calc_cov(double data[N][P], double A[P][P]) {
       mean[j] += data[i][j];
     }
     mean[j] /= N;
+    cout << mean[j] << '\n';
   }
 
   for (int k = 0; k < P; k++) {
@@ -91,6 +92,7 @@ int main(int argc, char *argv[]) {
   }
 
   poweigen(A, x, &lambda);
+  cout << lambda << '\n';
   printf("*** 第１主成分 : ");
   print_vec(x);
 
