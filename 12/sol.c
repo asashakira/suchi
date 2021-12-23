@@ -23,7 +23,7 @@ double euler(double (*func)(double, double), double x0, double y0, double xn, in
   for (int i = 1; i <= n; i++) {
     y += func(x, y) * h;
     x = x0 + i*h;
-    // printf("%g %g\n", x, y);
+    printf("%g %g\n", x, y);
   }
   return y;
 }
